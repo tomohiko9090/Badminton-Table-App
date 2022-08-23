@@ -1,7 +1,7 @@
 # Create-Badminton-Table
 
 ## 始めるとき
-1. クローン
+### 1.クローン
 ```
 git clone "https://github.com/tomohiko9090/Create-Badminton-Table.git"
 ```
