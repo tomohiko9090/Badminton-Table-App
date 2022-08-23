@@ -13,7 +13,7 @@ git clone "https://github.com/tomohiko9090/Create-Badminton-Table.git"
 git checkout -b ブランチ名
 ```
 注意！  
-この時必ず、masterブランチからブランチを切ること！
+この時、masterブランチからブランチを切ること！
 
 ### 2.コードを書く
 
@@ -21,9 +21,16 @@ git checkout -b ブランチ名
 ```
 git add .
 git commit -m "何の機能を加えたか"
+git push origin master
 ```
 
 ### 4.pull requestを行う
 GitHubを用いてプルリクします。
 
 ### 5.葛葉がブランチをmerge
+
+### 6.masterブランチに戻り、pullする
+```
+git checkout master
+git pull
+```
