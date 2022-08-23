@@ -11,7 +11,7 @@ git clone "https://github.com/tomohiko9090/Create-Badminton-Table.git"
 ```
 git checkout -b ブランチ名
 ```
-注意！  
+<span style="color: red; ">注意！</span>
 この時、masterブランチからブランチを切ること！
 
 ### 2.コードを書く
