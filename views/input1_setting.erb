@@ -1,0 +1,43 @@
+<%
+  #input2からデータ流し込み用
+  number_of_people = params[:number_of_people].to_i
+  number_of_group = params[:number_of_group].to_i
+%>
+
+<ol class="stepBar step4">
+<li class="step current">STEP1</li>
+<li class="step">STEP2</li>
+<li class="step">STEP3</li>
+<li class="step">STEP4</li>
+</ol>
+
+<div class="box fadeLeft">
+
+<h3 style="color:gray;">「参加する人数」と「分けたいリーグの数」を入力してください。</h3>
+
+<br>
+<form action="/input2_name" method="post">
+  <div><b>人数</b></div>
+  <div>
+    <input type="number" name="number_of_people" oninput="humanNumber();" id="human_num" value="0" min="1" max="100" class="form-control input-number border-dark" style="width:70px">
+
+    <p>
+        <div id="human"></div>
+    </p>
+  </div>
+  <br><br><br>
+
+  <div><b>リーグ数</b></div>
+  <div>
+    <input type="number" name="number_of_group" oninput="groupNumber();" id="box_num" value="0" min="1" max="20" class="form-control input-number border-dark" style="width:70px">
+  </div>
+<br><br>
+    <p>
+        <div id="box"></div>
+    </p>
+  <br><br><br><br>
+  <a href="/" class="btn btn-outline-success">ホームに戻る</a>
+  <button type="submit" class="btn btn-success" style="float: right;">　　次へ　　</button>
+</form>
+
+</div>

@@ -1,0 +1,75 @@
+<%  
+    number_of_people = params[:number_of_people].to_i
+    number_of_group = params[:number_of_group].to_i
+    names = params[:name] 
+    strengths = params[:strength]
+    table_type = params[:table_type] #tableからデータ流し込み用
+    unless table_type
+      table_type = "equally"
+    end
+%>
+<ol class="stepBar step4">
+    <li class="step">STEP1</li>
+    <li class="step">STEP2</li>
+    <li class="step">STEP3</li>
+    <li class="step current">STEP4</li>
+</ol>
+
+<div class="box fadeLeft">
+<h3 style="color:gray;">表の作り方を選んで下さい。</h3>
+<br>
+<form action="/table" method="post">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="table_type" id="equally" value="equally" <%= "checked" if table_type=="equally" %>>
+      <label class="form-check-label" for="flexRadioDefault1">
+        1. 強さを均等にして表を作る
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="table_type" id="level" value="level" <%= "checked" if table_type=="level" %>>
+      <label class="form-check-label" for="flexRadioDefault2">
+        2. レベル別に表を作る
+      </label>
+    </div>
+
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="table_type" id="random" value="random" <%= "checked" if table_type=="random" %>>
+      <label class="form-check-label" for="flexRadioDefault3">
+        3. ランダムに表を作る
+    </label>
+    </div>
+    
+    <br>
+    
+    <% names.each do |name|%>
+    <input type="hidden" name="name[]" value="<%= ERB::Util.html_escape(name) %>">
+    <% end %>  
+    <% strengths.each do |strength|%>
+    <input type="hidden" name="strength[]" value="<%= ERB::Util.html_escape(strength) %>">
+    <% end %>  
+    <span>
+      <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+      <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+      <button type="submit" class="btn btn-success" style="float: right;">　　表を作る　　</button>
+    </span>
+</form>
+
+
+<span>
+  <form action="/input3_strength" method="post">
+    <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+    <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+
+    <% names.each do |name|%>
+    <input type="hidden" name="name[]" value="<%= ERB::Util.html_escape(name) %>">
+    <% end %>  
+
+    <% strengths.each do |strength|%>
+    <input type="hidden" name="strength[]" value="<%= ERB::Util.html_escape(strength) %>">
+    <% end %> 
+
+    <input type="submit" class="btn btn-outline-success" value="ステップ3に戻る" style="float: left;">
+  </form>
+</span>
+</div>

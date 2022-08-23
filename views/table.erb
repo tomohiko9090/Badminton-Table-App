@@ -1,0 +1,147 @@
+<%  
+    names = params[:name] 
+    strengths = params[:strength].map{ |i| i.to_i }
+    table_type = params[:table_type]
+    number_of_people = params[:number_of_people].to_i
+    number_of_group = params[:number_of_group].to_i
+
+    # グループの人数の計算
+    number_of_team_member = number_of_people / number_of_group
+    residue = number_of_people % number_of_group
+    more_number_of_group = residue #多い方のグループの数
+    fewer_number_of_group = number_of_group - residue #少ない方のグループ
+
+    team_member_list = []
+    more_number_of_group.times.each do
+      team_member_list.push(number_of_team_member + 1)
+    end
+    fewer_number_of_group.times.each do
+      team_member_list.push(number_of_team_member)
+    end
+
+
+    # 名前順のリストを作成する
+    pair = [names, strengths].transpose #転置
+    if table_type == "level"
+      strength_list = pair.sort_by {|x| x[1]}
+      names1 = strength_list.transpose[0] #表1行目用
+      names2 = strength_list.transpose[0] #表1列目用
+    end
+
+    if table_type == "random"
+      strength_list = pair.shuffle!
+      names1 = strength_list.transpose[0] #表1行目用
+      names2 = strength_list.transpose[0] #表1列目用
+    end
+
+    box = []
+    if table_type == "equally"
+      # 1. 強さ順に並べ替え
+      strength_list = pair.sort_by {|x| x[1]}.reverse!
+      before_list = strength_list.transpose[0]
+
+      # 2. 箱を作る
+      number_of_group.times do  
+        box.push([])
+      end
+
+      # 3. 名前と弱い順に並べた時の順位を入れたハッシュin配列を作成
+      ranking_dict_in_list = []
+      before_list.reverse.each_with_index do |value, index|
+        ranking_dict_in_list.insert(0, {name: value, ranking: index+1})
+      end
+
+      # 4. 箱に挿入していく。その時、①各箱の和が小さいものに挿入、②和が同じときはindex番号が小さいものを優先にして、箱に入れる
+      ranking_dict_in_list.each do |value|
+        sum_box = []
+        box.each_with_index do |list, index|
+          sum_box.push(list.map{|hash| hash[:ranking]}.sum)
+        end
+      
+        loop do 
+          $sum_box_min_index = sum_box.index(sum_box.min) # ①
+          if  box[$sum_box_min_index].length < team_member_list[$sum_box_min_index]  # チームの人数編成に合わせる
+            break
+          else
+            sum_box[$sum_box_min_index] = 1000 #minで選択されないよう除外できるようにしている
+          end
+        end
+        box[$sum_box_min_index].push(value)
+      end
+
+      # 5. 全ての要素が入れ終わったら、1次元リストにし、同時にハッシュから要素を取り出す作業にする
+      after_list = box.flatten.reverse!
+      names1 = after_list.map{|hash| hash[:name]}
+      names2 = after_list.map{|hash| hash[:name]}
+    end   
+%>
+
+<h1></h1>
+<h2 style="color:gray;"><%=
+  if table_type == "equally"
+    "強さを均等にして作成した"
+  end%>
+  <%=
+  if table_type == "level"
+    "レベル別にして作成した"
+  end%>
+  <%=
+  if table_type == "random"
+    "ランダムで作成した" 
+  end%>
+リーグ表</h2>
+<br>
+
+<div class="box fadeIn">
+
+<div>
+  <% team_member_list.each_with_index do |team_member, index|%>
+  <h3>リーグ<%= index+1 %></h3>
+  </table>
+    <table class="table table-hover" style="text-align:center">
+    <%# <table class="table table-bordered" style="text-align:center"> %>
+      <% (team_member+1).times do |i| %>
+        <tr>
+        <% (team_member+1).times do |j| %>
+          <th>
+          <% if i == 0 && j != 0 %>
+              <%= names1.pop %>
+          <% elsif i == 0 && j == 0 %>
+              　
+          <% elsif i != 0 && j == 0 %>
+              <%= names2.pop %>
+          <% elsif i != j %>
+            <input type="text" placeholder="点数を入力">
+          <% else %>
+              ×
+          <% end %>
+          </th> 
+      <% end %>    
+      </tr>
+      <% end %>
+  </table>
+<br>
+<% end %>
+</div>
+<br>
+
+<span>
+  <form action="/input4_type" method="post">
+    <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+    <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+    <% names.each do |name|%>
+    <input type="hidden" name="name[]" value="<%= ERB::Util.html_escape(name) %>">
+    <% end %>  
+
+    <% strengths.each do |strength|%>
+    <input type="hidden" name="strength[]" value="<%= ERB::Util.html_escape(strength) %>">
+    <% end %> 
+
+    <input type="hidden" name="table_type" value="<%= table_type %>">
+    
+    <input type="submit" class="btn btn-outline-success" value="ステップ3に戻る" style="float: left;">
+  </form>
+</span>
+
+<a href="/" class="btn btn-success" style="float: right;">　トップページへ　</a>
+</div>

@@ -1,0 +1,58 @@
+<%  
+    number_of_people = params[:number_of_people].to_i
+    number_of_group = params[:number_of_group].to_i
+    names = params[:name] 
+    strengths = params[:strength] #input3からデータ流し込み用
+%>
+<ol class="stepBar step4">
+    <li class="step">STEP1</li>
+    <li class="step">STEP2</li>
+    <li class="step current">STEP3</li>
+    <li class="step">STEP4</li>
+</ol>
+
+<div class="box fadeLeft">
+<h3 style="color:gray;">プレイヤーの強さを10段階で評価してください。</h3>
+<br>
+<form action="/input4_type" method="post">
+    <% (1..number_of_people).each do |i|%>
+    <dt><span><%= "プレイヤー#{i}  「#{names[i-1]}」" %></span></dt>
+
+    <span><input type="range" list="my-datalist" name="strength[]" min="1" max="10" step="1" value=<%=
+    if strengths
+        strengths[i-1]
+    else
+        "1"
+    end
+    %> oninput="document.getElementById('output<%= i-1 %>').value=this.value"></span>
+    
+    <output id="output<%= i-1 %>"><%=
+    if strengths
+        strengths[i-1]
+    else
+        "1"
+    end
+    %></output> 
+    <br><br>
+    <% end %> 
+    <br>
+    <br>
+
+    <% names.each do |name|%>
+    <input type="hidden" name="name[]" value="<%= ERB::Util.html_escape(name) %>">
+    <% end %>  
+    <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+    <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+    <button type="submit" class="btn btn-success" style="float: right;">　　次へ　　</button>
+</form>
+
+<form action="/input2_name" method="post">
+    <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+    <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+    <% names.each do |name|%>
+    <input type="hidden" name="name[]" value="<%= ERB::Util.html_escape(name) %>">
+    <% end %>  
+
+    <input type="submit" class="btn btn-outline-success" value="ステップ2に戻る" style="float: left;">
+</form>
+</div>

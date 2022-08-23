@@ -1,0 +1,178 @@
+<div>
+    <h3>リーグ<% number_of_people %></h3>
+</table>
+    <table class="table table-hover">
+    <tr>
+      <th></th>
+      <th><%=
+        strength_list[0][0] 
+      %></th>
+      <th><%=
+         if table_type == "equally"
+          strength_list[5][0]
+         else
+          strength_list[1][0] end
+      %></th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[6][0]
+        else
+          strength_list[2][0] end 
+      %></th>      
+    </tr>
+    <tr>
+      <th>
+      <%= strength_list[0][0] %>
+      </th> 
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[5][0]
+        else
+          strength_list[1][0] end 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[6][0]
+        else
+          strength_list[2][0] end 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+    </tr>
+    </table>
+</div>
+<br>
+<br>
+
+<div>
+    <h3>Bリーグ</h3>
+    <table class="table table-hover">
+    <tr>
+      <th></th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[1][0]
+        else
+          strength_list[3][0] 
+        end %>
+      </th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[4][0]
+        else
+          strength_list[4][0] 
+        end 
+      %></th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[7][0]
+        else
+          strength_list[5][0] 
+        end 
+      %></th>      
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[1][0]
+        else
+          strength_list[3][0] 
+        end 
+      %></th>
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        strength_list[4][0] 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[7][0]
+        else
+          strength_list[5][0] 
+        end 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+    </tr>
+    </table>
+</div>
+<br>
+<br>
+
+<div>
+    <h3>Cリーグ</h3>
+    <table class="table table-hover">
+    <tr>
+      <th></th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[2][0]
+        else
+          strength_list[6][0] 
+        end 
+      %></th>
+      <th><%=
+        if table_type == "equally"
+          strength_list[3][0]
+        else
+          strength_list[7][0] 
+        end 
+      %></th>
+      <th><%=
+        strength_list[8][0] 
+      %></th>
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[2][0]
+        else
+          strength_list[6][0] 
+        end 
+      %></th>
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        if table_type == "equally"
+          strength_list[3][0]
+        else
+          strength_list[7][0] 
+        end 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+    </tr>
+    <tr>
+      <th><%=
+        strength_list[8][0] 
+      %></th>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td><input type="text" placeholder="点数を入力"></td>
+      <td></td>
+    </tr>
+    </table>
+</div>
