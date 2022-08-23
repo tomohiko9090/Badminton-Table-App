@@ -4,7 +4,6 @@
 1. クローン
 ```
 git clone "https://github.com/tomohiko9090/Create-Badminton-Table.git"
-
 ```
 
 ## 開発手順
