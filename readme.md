@@ -18,7 +18,7 @@
 ### サーバー
 - Heroku
 
-##
+## 使い方
 ### ステップ1
 <kbd><img width="1532" alt="スクリーンショット 0004-09-12 午前7 01 29" src="https://user-images.githubusercontent.com/66200485/189550681-bde3d76b-551e-4c4a-9277-cf0edd822272.png"></kbd>
   
