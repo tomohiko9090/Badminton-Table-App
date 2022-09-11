@@ -2,7 +2,7 @@
 リーグ表作成アプリ<b>
 
 ## 一言でいうと...
-- 試合の順番や組み合わせを考える手間を省けるアプリ
+- 試合（バドミントン, テニス, 卓球）の順番や組み合わせを考える手間を省けるアプリ
 
 ## 使用した技術
 ### 言語
@@ -23,7 +23,7 @@
 <img width="1532" alt="スクリーンショット 0004-09-12 午前7 01 29" src="https://user-images.githubusercontent.com/66200485/189550681-bde3d76b-551e-4c4a-9277-cf0edd822272.png">
   
 ### ステップ２
-
+<img width="1532" alt="スクリーンショット 0004-09-12 午前7 01 29" src="https://user-images.githubusercontent.com/66200485/189550906-50705854-17a7-4471-8a2b-62419a3b5fb6.png">
 
 ### ステップ3
 <img width="1405" alt="スクリーンショット 0004-09-12 午前7 06 56" src="https://user-images.githubusercontent.com/66200485/189550820-d69f9c2f-f26b-4a2c-990e-f2397deeccfc.png">
@@ -36,3 +36,8 @@
 <img width="1433" alt="スクリーンショット 0004-09-12 午前7 08 53" src="https://user-images.githubusercontent.com/66200485/189550880-8ba3fd1a-7fba-4719-ac61-c0d62ecc1a8a.png">
   
 ## 今後の展望
+### ダブルスの組み合わせを生成する機能をつける
+1. 使用できるコート数, 参加人数を入力
+2. 名前を入力
+3. ペア, 試合順が生成
+  
