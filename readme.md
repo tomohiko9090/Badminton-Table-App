@@ -23,7 +23,7 @@
 <img width="1532" alt="スクリーンショット 0004-09-12 午前7 01 29" src="https://user-images.githubusercontent.com/66200485/189550681-bde3d76b-551e-4c4a-9277-cf0edd822272.png">
   
 ### ステップ２
-<img width="1532" alt="スクリーンショット 0004-09-12 午前7 01 29" src="https://user-images.githubusercontent.com/66200485/189550906-50705854-17a7-4471-8a2b-62419a3b5fb6.png">
+<img width="1383" alt="スクリーンショット 0004-09-12 午前7 15 28" src="https://user-images.githubusercontent.com/66200485/189551111-adfaf417-2140-4c10-a6ce-bf960f5d6a11.png">
 
 ### ステップ3
 <img width="1405" alt="スクリーンショット 0004-09-12 午前7 06 56" src="https://user-images.githubusercontent.com/66200485/189550820-d69f9c2f-f26b-4a2c-990e-f2397deeccfc.png">
