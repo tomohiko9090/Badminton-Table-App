@@ -1,5 +1,6 @@
 # Create-Badminton-Table
 リーグ表作成アプリ<b>
+<img width="1285" alt="スクリーンショット 0004-09-12 午前7 18 06" src="https://user-images.githubusercontent.com/66200485/189551207-e6426c07-147d-4296-8ced-66c136bf7d5e.png">
 
 ## 一言でいうと...
 - 試合（バドミントン, テニス, 卓球）の順番や組み合わせを考える手間を省けるアプリ
