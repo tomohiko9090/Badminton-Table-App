@@ -1,12 +1,49 @@
 <div class="box fadeIn">
-<div>
+<%# <div>
     <p>このアプリは、<b>「強さ」</b>を設定することによって、</p>
     <p>さまざまなリーグ表を作成してくれるアプリケーションです。</p>
-</div>
+</div> %>
 <br>
+<br>
+<br>
+
+<style>
+.bigbtn {
+    height: 400px; 
+    width: 400px; 
+    display: flex; 
+    justify-content: center; 
+    /* align-items: center; */
+    font-size: 150%;
+    border:none;
+    transition: background-color 0.5s;
+}
+
+.shingles{
+    background-image:url(3493.png);
+    background-repeat: no-repeat;
+    background-position: bottom 30px right 100px;
+}
+.shingles:hover {
+  background-color: rgb(38,191,162);
+}
+
+.doubles{
+    background-image:url(3492.png);
+    background-repeat: no-repeat;
+    background-position: bottom 60px right 100px;
+}
+.doubles:hover {
+  background-color: #F6F691;
+}
+
+
+</style>
+<div class="d-flex justify-content-evenly">
+    <a href="/input1_setting" class="btn btn-success bigbtn shingles"><br><br>シングルスの<br>リーグ表を作成する</a></span>
+    <a href="/input1_setting" class="btn btn-warning bigbtn doubles"><br><br>ダブルスの<br>対戦表を作成する</a>
+</div>
+</div>
+<%# <br>
 <img src="top.png">
-<br>
-<br>
-<br>
-<a href="/input1_setting" class="btn btn-success">リーグ表を作ってみる</a>
-</div>
+<br> %>
