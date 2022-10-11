@@ -1,0 +1,35 @@
+<%
+  number_of_people = params[:number_of_people].to_i
+  number_of_group = params[:number_of_group].to_i
+  names = params[:name] #input2からデータ流し込み用
+%>
+
+<ol class="stepBar step4">
+<li class="step">STEP1</li>
+<li class="step current">STEP2</li>
+<li class="step">STEP3</li>
+<li class="step">STEP4</li>
+</ol>
+
+<div class="box fadeLeft">
+<h3 style="color:gray;">プレイヤー名を入力してください。</h3>
+<br>
+<form action="/input3_strength" method="post">
+  <dl>
+          <%(1..number_of_people).each do |i|%>
+          <dt>プレイヤー<%=i%></dt>
+          <dd><input type="text" name="name[]" value="<%= names[i-1] if names %>"></dd><br>
+          <% end %> 
+  </dl>
+  <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+  <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+  <button type="submit" class="btn btn-success" style="float: right;">　　次へ　　</button>
+</form>
+
+<form action="/input1_setting" method="post">
+    <input type="hidden" name="number_of_people" value="<%= number_of_people %>">
+    <input type="hidden" name="number_of_group" value="<%= number_of_group %>">
+  <input type="submit" class="btn btn-outline-success" value="ステップ1に戻る" style="float: left;">
+</form>
+
+</div>
